@@ -1,0 +1,57 @@
+Raj Delight images not safely assigned
+Generated: 2026-09-17
+
+Every file below was scanned from /home/sam/Downloads. No file in this report was copied, converted, moved, renamed, or deleted.
+
+MEDIUM-confidence manual review (2)
+-----------------------------------
+- 4596767930419989376.jpeg — vegetable pulao, but cannot safely choose between Veg Pulao and Matar Pulao.
+- Crispy Golden Fried Mushrooms Recipe_ Irresistibly Crunchy Joy - Make, Take, Bake.jpeg — fried mushrooms; not enough evidence for the distinct Crispy Veggies (Salt & Pepper) dish.
+
+LOW-confidence / unrelated to the defined Raj Delight menu (41)
+---------------------------------------------------------------
+- 29k Likes, 138 Comments - Your Food Lab (@yourfoodlab) on Instagram_ “_ . .jpeg — pasta.
+- Authentic Rajasthani Thali _ Traditional Indian Veg Food _ Royal Indian Cuisine.jpeg — thali, not one menu item.
+- Bajra Roti — Rustic, Healthy & Delicious 🌾🧈.jpeg — bajra roti, not a listed bread.
+- Baked French Fries (Oven Fries).jpeg — fries, not a listed dish.
+- Best Veggie Burger Recipe Ever.jpeg — burger, not a listed dish.
+- Bombay Style Cheese Grilled Veg Sandwich 🥪🧀.jpeg — sandwich, not a listed dish.
+- ChatGPT Image Sep 9, 2026, 08_21_26 PM.png — non-food logo.
+- Cheese Corn Pizza Recipe _ Easy Homemade Cheesy Corn Pizza.jpeg — pizza, not a listed dish.
+- CHEESY MARGHERITA PIZZA.jpeg — pizza, not a listed dish.
+- codi_profile_pic_1mb.jpg — non-food logo.
+- Creamy Roasted Red Pepper Pasta_A velvety roasted red pepper sauce blended with garlic, Parmesan, and a touch of cream coats every bite of tender pasta — smoky, rich, and unforgettable___Ingredients__• Pasta of choice (penne or rigatoni work.jpeg — pasta, not a listed dish.
+- Delicious Chole Bhature _ A Classic Indian Food Delight.jpeg — chole bhature, not a listed dish.
+- Easy Aloo Pakoras.jpeg — pakoras, not a listed dish.
+- Fireball Whiskey Jalapeño Popper Burger with Cream Cheese Drizzle__➤ Ingredients___For the Burger__➊ 1 lb ground beef_➋ Salt and pepper to taste_➌ 4 hamburger buns_➋ 4 hamburger buns_➌ 4 hamburger buns_➍ Olive oil (for cooking)__For the Jalapeños__➎ 4 jalapeños, slice.jpeg — non-vegetarian burger; excluded from vegetarian menu assignments.
+- fry-papad.jpg — papad, not a listed dish.
+- Garlic Bread Recipe (Dominos style).jpeg — garlic bread, not Garlic Naan.
+- grilled paneer sandwich.jpeg — sandwich, not a listed dish.
+- Loaded Aloo Tikki Chaat.jpeg — chaat, not a listed dish.
+- Loaded Cheese Fries Recipe _ Crispy Cheesy French Fries.jpeg — fries, not a listed dish.
+- Margherita Pizza Feast.jpeg — pizza, not a listed dish.
+- masala-papad.jpg — papad, not a listed dish.
+- My signature style Maggi for lockdown comfort food cravings_..!!!!🤩😋🥳 . In the frame - Manchurian Maggi .jpeg — Maggi preparation, not Veg Manchurian.
+- onion pakoda 😋😋.jpeg — pakoras, not a listed dish.
+- Pakora Recipe (Indian Vegetable Fritters) __A plate of golden, crispy vegetable pakoras, served with green mint chutney and tamarind sauce on the side_ __Ingredients_ _- 1 cup chickpea flour (besan) _- 1_2 teaspoon turmeric powder _- 1_2 teaspoo.jpeg — pakoras, not a listed dish.
+- Paneer sizzler is an indian version with cottage cheese salad served sizzling on hot stone dish _ Premium Photo.jpeg — sizzler, not a listed dish.
+- Paneer Tikka Burger.jpeg — burger, not Paneer Tikka.
+- Peri Peri Frenzy 🍟🔥.jpeg — peri-peri fries, not Chilli Potato or Honey Chilli Potato.
+- plain-papad.jpg — papad, not a listed dish.
+- priya on Instagram_ “Tandoori Paneer Sandwich 😍❣️ _ Had these sandwiches stuffed with tandoori paneer and cheese served with ketchup and there in house dip, and…”.jpeg — sandwich, not Tandoori Paneer Tikka.
+- Protein-Packed Breakfast_ Quick Moong Dal Chilla Recipe.jpeg — chilla, not a listed dish.
+- shezwan fried idli.jpeg — fried idli, not Schezwan Fried Rice or Schezwan Noodles.
+- Soft Makki Ki Roti With Radish (Indian Corn meal Flatbread).jpeg — makki roti, not a listed bread.
+- Spicy chickpea veggie burgers with jalapeño and zucchini, topped with a tasty honey-lime slaw and fiery Sriracha mayo_ LOVE these veggie burgers!.jpeg — burger, not a listed dish.
+- Spicy Tandoori Paneer Tikka Pizza.jpeg — pizza, not Tandoori Paneer Tikka.
+- u.jpg — photo of a menu poster, not a dish image.
+- Ultra-Cheesy Homemade Garlic Bread _ Epic Cheese Pull Recipe.jpeg — garlic bread, not Garlic Naan.
+- Untitled.png — QR code, not food.
+- White sause pasta 🍝🍝.jpeg — pasta, not a listed dish.
+- ಮನೆಯಲ್ಲೇ ಮಾಡಿ ಪನೀರ್ ಪಕೋಡ! ಸಿಂಪಲ್ ರೆಸಿಪಿ ಇಲ್ಲಿದೆ.jpeg — paneer pakodas, not a listed dish.
+- 🍕 Neapolitan Pizza.jpeg — pizza, not a listed dish.
+- 🔥 Peri-Peri Paneer Sliders – Spicy, Cheesy & Perfectly Desi! 🍔🌶️__Mini sliders bursting with smoky peri-peri paneer, melted cheese, and creamy sauce — the ultimate Indo-Western snack that hits every craving! 😋💥__🍗 Marinat.jpeg — sliders, not a listed dish.
+
+HIGH-confidence candidate not saved because of target conflict (1)
+---------------------------------------------------------------
+- Spiced Buttered Corn.jpeg — American Corn / american-corn.jpg; the target file already exists, so it was deliberately not overwritten. See IMAGE-RENAME-REPORT.txt.

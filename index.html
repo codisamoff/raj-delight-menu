@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#14110F" />
+<meta name="format-detection" content="telephone=no" />
+
+<title>Raj Delight | Premium Restaurant in Chandausi</title>
+<meta name="description" content="Explore the Raj Delight menu in Chandausi, Uttar Pradesh. Browse food, beverages, specialities and restaurant information." />
+
+<!-- Open Graph -->
+<meta property="og:type" content="restaurant" />
+<meta property="og:title" content="Raj Delight | Premium Restaurant in Chandausi" />
+<meta property="og:description" content="Explore the Raj Delight menu in Chandausi, Uttar Pradesh. Browse food, beverages, specialities and restaurant information." />
+<meta property="og:image" content="images/raj-delight-hero-poster.jpg" />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+
+<!-- Structured data (factual only) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Raj Delight",
+  "description": "Premium restaurant in Chandausi, Uttar Pradesh.",
+  "servesCuisine": ["Indian", "Chinese", "Italian", "Continental"],
+  "priceRange": "₹₹",
+  "telephone": "+91 79831 48985",
+  "image": "images/raj-delight-hero-poster.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Lathi Bazar, near Prathma Bank, Avas Vikas Colony",
+    "addressLocality": "Chandausi",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "244412",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.4489261,
+    "longitude": 78.7775276
+  },
+  "hasMap": "https://www.google.com/maps/place/Raj+Delight/@28.4489261,78.7775276,17z/"
+}
+</script>
+</head>
+
+<body>
+
+<a class="skip-link" href="#menu">Skip to menu</a>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar" id="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="#top" aria-label="Raj Delight — back to top">
+      <span class="brand__mark" aria-hidden="true">RD</span>
+      <span class="brand__text">
+        <span class="brand__name">Raj Delight</span>
+        <span class="brand__sub">Chandausi</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" type="button"
+            aria-label="Open navigation" aria-expanded="false" aria-controls="navSheet">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ NAV BACKDROP ============ -->
+<div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+<!-- ============ NAV SHEET ============ -->
+<nav class="nav-sheet" id="navSheet" aria-label="Main navigation" aria-hidden="true">
+  <ul class="nav-sheet__list">
+    <li><a href="#specials" data-nav>Raj Delight Specials</a></li>
+    <li><a href="#menu" data-nav>Full Menu</a></li>
+    <li><a href="#contact" data-nav>Restaurant Information</a></li>
+    <li><a href="#terms" data-nav>Terms &amp; Conditions</a></li>
+  </ul>
+  <a class="btn btn--gold btn--block" href="tel:+917983148985">Call Restaurant</a>
+</nav>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__media" aria-hidden="true">
+      <video class="hero__video" id="heroVideo"
+             autoplay muted loop playsinline preload="metadata"
+             poster="images/raj-delight-hero-poster.jpg" tabindex="-1">
+        <source src="videos/raj-delight-hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <span class="hero__mark" aria-hidden="true">RD</span>
+      <p class="hero__eyebrow">Premium Restaurant</p>
+      <h1 class="hero__title">Raj Delight</h1>
+      <p class="hero__tagline">Good Food. Great Moments.</p>
+      <a class="btn btn--gold hero__cta" href="#menu">Explore Menu</a>
+      <p class="hero__loc">Lathi Bazar &middot; Chandausi, Uttar Pradesh</p>
+    </div>
+  </section>
+
+  <!-- ============ SPECIALS ============ -->
+  <section class="specials" id="specials" aria-labelledby="specials-title">
+    <div class="section-head" data-reveal>
+      <p class="section-eyebrow">Featured Selection</p>
+      <h2 class="section-title" id="specials-title">Raj Delight Specials</h2>
+      <p class="section-sub">A short selection from our kitchen.</p>
+    </div>
+    <div class="specials__rail" id="specialsRail" role="list"></div>
+  </section>
+
+  <!-- ============ MENU ============ -->
+  <section class="menu" id="menu" aria-labelledby="menu-title">
+    <div class="section-head" data-reveal>
+      <p class="section-eyebrow">Our Menu</p>
+      <h2 class="section-title" id="menu-title">Menu</h2>
+    </div>
+
+    <div class="menu-toolbar" id="menuToolbar">
+      <div class="toolbar__inner">
+        <div class="search">
+          <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+          </svg>
+          <input class="search__input" id="searchInput" type="search"
+                 placeholder="Search dishes..." aria-label="Search dishes"
+                 autocomplete="off" spellcheck="false" enterkeyhint="search" />
+          <button class="search__clear" id="searchClear" type="button"
+                  aria-label="Clear search" hidden>&times;</button>
+        </div>
+
+        <div class="chips" id="categoryChips" role="group" aria-label="Menu categories"></div>
+      </div>
+    </div>
+
+    <div class="menu-body">
+      <noscript>
+        <p class="noscript">
+          This menu needs JavaScript to display. Please enable JavaScript,
+          or call us at <a href="tel:+917983148985">+91 79831 48985</a>.
+        </p>
+      </noscript>
+
+      <div class="menu-status-row">
+        <p class="menu-status" id="menuStatus" role="status" aria-live="polite"></p>
+        <button class="link-btn" id="resetFiltersTop" type="button" hidden>Clear filters</button>
+      </div>
+
+      <div class="menu-results" id="menuResults"></div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <p class="empty-state__title">No dishes found</p>
+        <p class="empty-state__text">Try searching for something else.</p>
+        <button class="btn btn--outline" id="resetFilters" type="button">Reset filters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact__card" data-reveal>
+      <span class="contact__mark" aria-hidden="true">RD</span>
+      <p class="section-eyebrow section-eyebrow--light">Visit Us</p>
+      <h2 class="contact__name" id="contact-title">Raj Delight</h2>
+
+      <address class="contact__address">
+        Lathi Bazar, near Prathma Bank,<br />
+        Avas Vikas Colony,<br />
+        Chandausi, Uttar Pradesh 244412, India
+      </address>
+
+      <p class="contact__phone">
+        <a href="tel:+917983148985">+91 79831 48985</a>
+      </p>
+
+      <div class="contact__actions">
+        <a class="btn btn--gold" href="tel:+917983148985">Call Restaurant</a>
+        <a class="btn btn--ghost"
+           href="https://www.google.com/maps/place/Raj+Delight/@28.4489261,78.7775276,17z/"
+           target="_blank" rel="noopener noreferrer">Get Directions</a>
+      </div>
+
+      <p class="contact__social">@rajdelight</p>
+    </div>
+  </section>
+
+  <!-- ============ TERMS ============ -->
+  <section class="terms" id="terms" aria-labelledby="terms-title">
+    <div class="terms__inner" data-reveal>
+      <h2 class="sr-only" id="terms-title">Terms and Conditions</h2>
+
+      <details class="accordion">
+        <summary class="accordion__summary">
+          <span>Terms &amp; Conditions</span>
+          <span class="accordion__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="accordion__wrap">
+          <ul class="accordion__body">
+            <li>GST as applicable.</li>
+            <li>Outside food is not allowed in the restaurant premises.</li>
+            <li>Smoking &amp; drinking are strictly prohibited.</li>
+            <li>Minimum preparation time for A la-Carte dishes is 20 minutes.</li>
+            <li>Rates can be changed without prior notice.</li>
+            <li>Some items may not be available at all times.</li>
+            <li>Order once placed cannot be cancelled.</li>
+            <li>All disputes are subject to Chandausi jurisdiction only.</li>
+            <li>If any kind of damage is done inside the restaurant by the customer, it will be paid by the customer.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" data-reveal>
+  <span class="footer__mark" aria-hidden="true">RD</span>
+  <p class="footer__name">Raj Delight</p>
+  <p class="footer__sub">Premium Restaurant</p>
+  <p class="footer__place">Chandausi, Uttar Pradesh</p>
+
+  <div class="footer__actions">
+    <a class="btn btn--gold" href="tel:+917983148985">Call Restaurant</a>
+    <a class="btn btn--ghost"
+       href="https://www.google.com/maps/place/Raj+Delight/@28.4489261,78.7775276,17z/"
+       target="_blank" rel="noopener noreferrer">Get Directions</a>
+  </div>
+
+  <p class="footer__copy">&copy; 2026 Raj Delight</p>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path>
+  </svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
