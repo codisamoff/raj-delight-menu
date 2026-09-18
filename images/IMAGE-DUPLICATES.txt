@@ -1,6 +1,0 @@
-Raj Delight duplicate-candidate report
-Generated: 2026-09-17
-
-No duplicate candidates found among the 44 scanned Downloads images: no two Downloads images were safely identified as the same required Raj Delight dish.
-
-Note: Spiced Buttered Corn.jpeg is a high-confidence American Corn candidate, but it is a target-name conflict with the pre-existing images/american-corn.jpg, not a duplicate pair within Downloads. The existing file was not overwritten.
