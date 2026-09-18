@@ -16,14 +16,15 @@
 <meta property="og:image" content="images/raj-delight-hero-poster.jpg" />
 <meta property="og:locale" content="en_IN" />
 
-<!-- Fonts -->
+<link rel="icon" type="image/png" href="images/raj-delight-logo.png" />
+<link rel="apple-touch-icon" href="images/raj-delight-logo.png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="style.css" />
 
-<!-- Structured data (factual only) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,6 +35,7 @@
   "priceRange": "₹₹",
   "telephone": "+91 79831 48985",
   "image": "images/raj-delight-hero-poster.jpg",
+  "logo": "images/raj-delight-logo.png",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Lathi Bazar, near Prathma Bank, Avas Vikas Colony",
@@ -42,11 +44,7 @@
     "postalCode": "244412",
     "addressCountry": "IN"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 28.4489261,
-    "longitude": 78.7775276
-  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 28.4489261, "longitude": 78.7775276 },
   "hasMap": "https://www.google.com/maps/place/Raj+Delight/@28.4489261,78.7775276,17z/"
 }
 </script>
@@ -56,17 +54,15 @@
 
 <a class="skip-link" href="#menu">Skip to menu</a>
 
-<!-- ============ TOP BAR ============ -->
 <header class="topbar" id="topbar">
   <div class="topbar__inner">
     <a class="brand" href="#top" aria-label="Raj Delight — back to top">
-      <span class="brand__mark" aria-hidden="true">RD</span>
+      <img class="brand__logo" src="images/raj-delight-logo.png" alt="" width="40" height="40" decoding="async" onerror="this.style.display='none'" />
       <span class="brand__text">
         <span class="brand__name">Raj Delight</span>
         <span class="brand__sub">Chandausi</span>
       </span>
     </a>
-
     <button class="nav-toggle" id="navToggle" type="button"
             aria-label="Open navigation" aria-expanded="false" aria-controls="navSheet">
       <span class="nav-toggle__bar"></span>
@@ -75,11 +71,13 @@
   </div>
 </header>
 
-<!-- ============ NAV BACKDROP ============ -->
 <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
-<!-- ============ NAV SHEET ============ -->
 <nav class="nav-sheet" id="navSheet" aria-label="Main navigation" aria-hidden="true">
+  <div class="nav-sheet__brand">
+    <img class="nav-sheet__logo" src="images/raj-delight-logo.png" alt="" width="56" height="56" decoding="async" onerror="this.style.display='none'" />
+    <span class="nav-sheet__name">Raj Delight</span>
+  </div>
   <ul class="nav-sheet__list">
     <li><a href="#specials" data-nav>Raj Delight Specials</a></li>
     <li><a href="#menu" data-nav>Full Menu</a></li>
@@ -91,7 +89,6 @@
 
 <main id="main">
 
-  <!-- ============ HERO ============ -->
   <section class="hero" id="top">
     <div class="hero__media" aria-hidden="true">
       <video class="hero__video" id="heroVideo"
@@ -101,18 +98,16 @@
       </video>
     </div>
     <div class="hero__overlay" aria-hidden="true"></div>
-
     <div class="hero__content">
-      <span class="hero__mark" aria-hidden="true">RD</span>
+      <img class="hero__mark" src="images/raj-delight-logo.png" alt="Raj Delight" width="140" height="140" decoding="async" onerror="this.style.display='none'" />
       <p class="hero__eyebrow">Premium Restaurant</p>
       <h1 class="hero__title">Raj Delight</h1>
-      <p class="hero__tagline">Good Food. Great Moments.</p>
-      <a class="btn btn--gold hero__cta" href="#menu">Explore Menu</a>
+      <p class="hero__tagline">Taste &middot; Tradition &middot; Together</p>
+      <a class="btn btn--gold hero__cta" href="#menu">View Menu</a>
       <p class="hero__loc">Lathi Bazar &middot; Chandausi, Uttar Pradesh</p>
     </div>
   </section>
 
-  <!-- ============ SPECIALS ============ -->
   <section class="specials" id="specials" aria-labelledby="specials-title">
     <div class="section-head" data-reveal>
       <p class="section-eyebrow">Featured Selection</p>
@@ -122,7 +117,6 @@
     <div class="specials__rail" id="specialsRail" role="list"></div>
   </section>
 
-  <!-- ============ MENU ============ -->
   <section class="menu" id="menu" aria-labelledby="menu-title">
     <div class="section-head" data-reveal>
       <p class="section-eyebrow">Our Menu</p>
@@ -143,7 +137,6 @@
           <button class="search__clear" id="searchClear" type="button"
                   aria-label="Clear search" hidden>&times;</button>
         </div>
-
         <div class="chips" id="categoryChips" role="group" aria-label="Menu categories"></div>
       </div>
     </div>
@@ -171,10 +164,9 @@
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="contact__card" data-reveal>
-      <span class="contact__mark" aria-hidden="true">RD</span>
+      <img class="contact__mark" src="images/raj-delight-logo.png" alt="" width="100" height="100" loading="lazy" decoding="async" onerror="this.style.display='none'" />
       <p class="section-eyebrow section-eyebrow--light">Visit Us</p>
       <h2 class="contact__name" id="contact-title">Raj Delight</h2>
 
@@ -195,15 +187,25 @@
            target="_blank" rel="noopener noreferrer">Get Directions</a>
       </div>
 
+      <a class="btn btn--outline contact__ig"
+         href="https://www.instagram.com/raj_delight/"
+         target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+        </svg>
+        Follow on Instagram
+      </a>
+
       <p class="contact__social">@rajdelight</p>
     </div>
   </section>
 
-  <!-- ============ TERMS ============ -->
   <section class="terms" id="terms" aria-labelledby="terms-title">
     <div class="terms__inner" data-reveal>
       <h2 class="sr-only" id="terms-title">Terms and Conditions</h2>
-
       <details class="accordion">
         <summary class="accordion__summary">
           <span>Terms &amp; Conditions</span>
@@ -228,9 +230,8 @@
 
 </main>
 
-<!-- ============ FOOTER ============ -->
 <footer class="site-footer" data-reveal>
-  <span class="footer__mark" aria-hidden="true">RD</span>
+  <img class="footer__mark" src="images/raj-delight-logo.png" alt="" width="88" height="88" loading="lazy" decoding="async" onerror="this.style.display='none'" />
   <p class="footer__name">Raj Delight</p>
   <p class="footer__sub">Premium Restaurant</p>
   <p class="footer__place">Chandausi, Uttar Pradesh</p>
@@ -244,6 +245,115 @@
 
   <p class="footer__copy">&copy; 2026 Raj Delight</p>
 </footer>
+
+<!-- ============ VOIDX TEAM CREDIT ============ -->
+<section class="voidx" aria-labelledby="voidx-title">
+  <div class="voidx__inner">
+    <p class="voidx__eyebrow">Crafted With Care</p>
+    <h2 class="voidx__title" id="voidx-title">Made by VoidX Team</h2>
+    <p class="voidx__sub">Created by <strong>Codi_Sam</strong></p>
+    <span class="voidx__divider" aria-hidden="true"></span>
+
+    <ul class="voidx__team" role="list">
+      <li class="voidx__member">
+        <span class="voidx__avatar" aria-hidden="true">CS</span>
+        <span class="voidx__name">Codi_Sam</span>
+        <span class="voidx__role">Developer</span>
+        <a class="voidx__ig"
+           href="https://www.instagram.com/i_am.your.sam/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Codi_Sam on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+          </svg>
+          Instagram
+        </a>
+      </li>
+
+      <li class="voidx__member">
+        <span class="voidx__avatar" aria-hidden="true">V</span>
+        <span class="voidx__name">Void</span>
+        <span class="voidx__role">Team</span>
+        <a class="voidx__ig"
+           href="https://www.instagram.com/px_void_/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Void on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+          </svg>
+          Instagram
+        </a>
+      </li>
+
+      <li class="voidx__member">
+        <span class="voidx__avatar" aria-hidden="true">S</span>
+        <span class="voidx__name">Shresth</span>
+        <span class="voidx__role">Team</span>
+        <a class="voidx__ig"
+           href="https://www.instagram.com/exyric.shresth/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Shresth on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+          </svg>
+          Instagram
+        </a>
+      </li>
+
+      <li class="voidx__member">
+        <span class="voidx__avatar" aria-hidden="true">L</span>
+        <span class="voidx__name">Lalit</span>
+        <span class="voidx__role">Team</span>
+        <a class="voidx__ig"
+           href="https://www.instagram.com/lynx.lalit/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Lalit on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+          </svg>
+          Instagram
+        </a>
+      </li>
+    </ul>
+
+    <p class="voidx__copy">VoidX Team &middot; 2026</p>
+  </div>
+</section>
+
+<!-- ============ DISH DETAIL MODAL ============ -->
+<div class="dish-modal" id="dishModal" role="dialog" aria-modal="true"
+     aria-labelledby="dishModalName" aria-hidden="true">
+  <div class="dish-modal__backdrop" id="dishModalBackdrop"></div>
+  <div class="dish-modal__panel" role="document">
+    <button class="dish-modal__close" id="dishModalClose" type="button" aria-label="Close dish details">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="dish-modal__media">
+      <img class="dish-modal__img" id="dishModalImg" alt="" decoding="async" />
+    </div>
+    <div class="dish-modal__body">
+      <h3 class="dish-modal__name" id="dishModalName"></h3>
+      <p class="dish-modal__veg">
+        <span class="veg-dot" role="img" aria-label="Vegetarian"></span>
+        <span>Veg</span>
+      </p>
+      <p class="dish-modal__price" id="dishModalPrice"></p>
+      <p class="dish-modal__tagline" id="dishModalTagline"></p>
+    </div>
+  </div>
+</div>
 
 <button class="to-top" id="toTop" type="button" aria-label="Back to top">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"

@@ -76,9 +76,7 @@ body {
     padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Scroll lock while the navigation sheet is open.
- *  Applying to both <html> and <body> is the reliable cross-browser
- *  pattern — iOS Safari ignores overflow:hidden on <body> alone. */
+/* Scroll lock while navigation sheet or dish modal is open. */
 html.is-locked,
 body.is-locked { overflow: hidden; }
 
@@ -164,12 +162,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 /* ==========================================================================
  *  SCROLL-REVEAL SYSTEM
- *  JS adds .reveal + observes; .is-visible plays the transition once.
- *  --rd is the per-element stagger delay set inline by JS.
- *
- *  NOTE: deliberately no `will-change` here — this class can land on 200+
- *  rows, and promoting each one to its own layer hurts low-end devices.
- *  Animating only opacity/transform is already GPU-friendly.
  *  ========================================================================== */
 .reveal {
     opacity: 0;
@@ -186,7 +178,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 /* ==========================================================================
  *  TOP BAR
- *  Height includes the top safe-area inset so sticky offsets line up.
  *  ========================================================================== */
 .topbar {
     position: fixed;
@@ -225,19 +216,16 @@ a, button { -webkit-tap-highlight-color: transparent; }
     padding: 4px 0;
 }
 
-.brand__mark {
-    width: 32px; height: 32px;
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--gold-line-2);
-    color: var(--gold);
-    font-family: var(--font-display);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    border-radius: 2px;
+/* ---------- Actual Raj Delight logo (header) ---------- */
+.brand__logo {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    object-position: center;
     flex-shrink: 0;
-    transition: border-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease);
+    display: block;
+    filter: drop-shadow(0 2px 6px rgba(201, 162, 74, 0.18));
+    transition: filter var(--dur-2) var(--ease), transform var(--dur-2) var(--ease);
 }
 
 .brand__text {
@@ -322,6 +310,33 @@ a, button { -webkit-tap-highlight-color: transparent; }
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+/* ---------- Nav sheet branding row ---------- */
+.nav-sheet__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 4px 18px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--gold-line);
+}
+
+.nav-sheet__logo {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(201, 162, 74, 0.18));
+}
+
+.nav-sheet__name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--cream);
 }
 
 .nav-sheet__list { margin-bottom: 18px; }
@@ -422,7 +437,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
  *  ========================================================================== */
 .hero {
     position: relative;
-    height: 88vh;          /* fallback for browsers without svh */
+    height: 88vh;
     min-height: 520px;
     max-height: 760px;
     overflow: hidden;
@@ -431,8 +446,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 @supports (height: 100svh) {
-    /* svh = smallest viewport height, so mobile browser chrome never
-     *      crops the hero content. */
     .hero { height: 88svh; }
 }
 
@@ -478,8 +491,6 @@ body.is-booted .hero__video { transform: scale(1); }
     text-align: center;
 }
 
-/* Staggered hero entrance — only once JS marks the page as booted,
- *   so content is never hidden if JS fails. */
 body.is-booted .hero__content > * {
     opacity: 0;
     animation: heroIn 800ms var(--ease-out) forwards;
@@ -496,18 +507,16 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ---------- Actual Raj Delight logo (hero) ---------- */
 .hero__mark {
-    width: 52px; height: 52px;
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--gold-line-2);
-    color: var(--gold);
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    border-radius: 2px;
-    margin-bottom: 20px;
+    width: clamp(96px, 24vw, 130px);
+    height: clamp(96px, 24vw, 130px);
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 22px;
+    display: block;
+    filter: drop-shadow(0 6px 26px rgba(201, 162, 74, 0.28))
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55));
 }
 
 .hero__eyebrow {
@@ -634,7 +643,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     background: var(--ink);
 }
 
-/* ---------- Sticky toolbar ---------- */
 .menu-toolbar {
     position: sticky;
     top: calc(var(--topbar-h) + env(safe-area-inset-top, 0px));
@@ -655,7 +663,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     padding: 0 var(--pad-x);
 }
 
-/* ---------- Search ---------- */
 .search {
     position: relative;
     display: flex;
@@ -691,7 +698,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     background: transparent;
     border: 0;
     outline: none;
-    /* 16px minimum prevents iOS Safari from zooming the page on focus */
     font-size: 16px;
     color: var(--cream);
     letter-spacing: 0.005em;
@@ -711,7 +717,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
 }
 .search__clear:active { color: var(--gold); opacity: 0.7; }
 
-/* ---------- Category chips ---------- */
 .chips {
     display: flex;
     gap: 8px;
@@ -751,7 +756,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     font-weight: 600;
 }
 
-/* ---------- Status row ---------- */
 .menu-body {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -784,7 +788,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     color: var(--cream-mute);
 }
 
-/* ---------- Category group ---------- */
 .cat-group {
     padding: 26px 0 6px;
     border-top: 1px solid var(--gold-line);
@@ -832,7 +835,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     flex-direction: column;
 }
 
-/* ---------- Item row ---------- */
 .item {
     display: flex;
     gap: 13px;
@@ -886,8 +888,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     line-height: 1.2;
 }
 
-/* Image reveal: placeholder underneath, image fades + gently settles in.
- *   No layout shift — the container size is fixed. */
 .thumb__img {
     position: absolute;
     inset: 0;
@@ -929,8 +929,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     transition: color var(--dur-2) var(--ease);
 }
 
-/* Vegetarian indicator. Raj Delight is a 100% vegetarian kitchen, so this
- *  is shown on every item. */
 .veg-dot {
     flex-shrink: 0;
     width: 12px; height: 12px;
@@ -997,7 +995,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     color: var(--cream-dim);
 }
 
-/* ---------- Empty state ---------- */
 .empty-state {
     padding: 64px 20px 80px;
     text-align: center;
@@ -1035,17 +1032,13 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
 }
 
 .contact__mark {
-    width: 56px; height: 56px;
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--gold-line-2);
-    color: var(--gold);
-    font-family: var(--font-display);
-    font-size: 23px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    border-radius: 2px;
+    width: clamp(80px, 20vw, 104px);
+    height: clamp(80px, 20vw, 104px);
+    object-fit: contain;
+    object-position: center;
+    display: block;
     margin-bottom: 22px;
+    filter: drop-shadow(0 4px 18px rgba(201, 162, 74, 0.22));
 }
 
 .contact__name {
@@ -1095,8 +1088,16 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     color: var(--cream-mute);
 }
 
+/* ---------- Contact Instagram button ---------- */
+.contact__ig {
+    margin-top: 12px;
+    width: 100%;
+    max-width: 320px;
+}
+.contact__ig svg { flex-shrink: 0; }
+
 /* ==========================================================================
- *  TERMS — smooth height animation via the grid 0fr -> 1fr trick
+ *  TERMS
  *  ========================================================================== */
 .terms {
     padding: 0 var(--pad-x) 54px;
@@ -1155,7 +1156,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     opacity: 0;
 }
 
-/* Animated height wrapper (grid-rows technique — compositor-friendly) */
 .accordion__wrap {
     display: grid;
     grid-template-rows: 0fr;
@@ -1213,17 +1213,14 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
 }
 
 .footer__mark {
-    width: 46px; height: 46px;
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--gold-line-2);
-    color: var(--gold);
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    border-radius: 2px;
+    width: clamp(72px, 18vw, 92px);
+    height: clamp(72px, 18vw, 92px);
+    object-fit: contain;
+    object-position: center;
+    display: block;
     margin-bottom: 20px;
+    opacity: 0.96;
+    filter: drop-shadow(0 3px 14px rgba(201, 162, 74, 0.18));
 }
 
 .footer__name {
@@ -1301,7 +1298,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
 
 /* ==========================================================================
  *  DESKTOP HOVER STATES
- *  Only on devices with a real pointer — never interfere with touch.
  *  ========================================================================== */
 @media (hover: hover) {
     .btn--gold:hover {
@@ -1326,11 +1322,26 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
     .contact__phone a:hover { color: var(--cream); border-color: var(--cream); }
     .link-btn:hover { opacity: 0.75; }
     .search__clear:hover { color: var(--gold); }
-    .brand:hover .brand__mark { border-color: var(--gold); color: #E0BE66; }
+    .brand:hover .brand__logo { transform: scale(1.04); filter: drop-shadow(0 3px 10px rgba(201,162,74,0.32)); }
+    .voidx__member:hover {
+        border-color: var(--gold-line-2);
+        transform: translateY(-2px);
+    }
+    .voidx__ig:hover {
+        color: var(--gold);
+        border-color: var(--gold-line-2);
+        background: rgba(201, 162, 74, 0.06);
+    }
+    .dish-modal__close:hover {
+        background: var(--ink);
+        border-color: var(--gold);
+        color: var(--gold);
+    }
+    .contact__ig:hover { background: rgba(201, 162, 74, 0.08); }
 }
 
 /* ==========================================================================
- *  RESPONSIVE — TABLET / DESKTOP (secondary priority)
+ *  RESPONSIVE — TABLET / DESKTOP
  *  ========================================================================== */
 @media (min-width: 600px) {
     :root { --pad-x: 26px; }
@@ -1379,8 +1390,7 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
 }
 
 /* ==========================================================================
- *  REDUCED MOTION — disable or simplify all non-essential animation.
- *  Functionality (menu, search, filters, navigation) is never removed.
+ *  REDUCED MOTION
  *  ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -1400,10 +1410,6 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
 
     .thumb__img { transform: none !important; }
 
-    /* Swap the moving video for a still hero image.
-     *      The poster is layered ON TOP of the existing radial gradient so that
-     *      if the poster file does not exist yet, the gradient underneath still
-     *      renders instead of a flat transparent background. */
     .hero__video { display: none; }
     .hero__media {
         background-color: #14110F;
@@ -1414,4 +1420,313 @@ body.is-booted .hero__content > *:nth-child(6) { animation-delay: 540ms; }
         background-position: center 40%, center;
         background-repeat: no-repeat, no-repeat;
     }
+
+    .dish-modal__panel { transform: none !important; }
+    .dish-modal.is-open .dish-modal__panel { transform: none !important; }
+}
+
+/* ==========================================================================
+ *  DISH MODAL, VOIDX TEAM, CLICKABLE DISH AFFORDANCES
+ * ========================================================================== */
+
+/* ---------- Clickable dish affordances ---------- */
+.item__thumb,
+.item__name,
+.spec-card__thumb,
+.spec-card__name {
+    cursor: pointer;
+}
+
+/* ==========================================================================
+ *  DISH DETAIL MODAL
+ * ========================================================================== */
+.dish-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    padding: 20px 16px calc(20px + env(safe-area-inset-bottom, 0px));
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--dur-2) var(--ease), visibility var(--dur-2);
+}
+
+.dish-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dish-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 8, 7, 0.78);
+    cursor: pointer;
+}
+
+.dish-modal__panel {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    background: var(--ink-2);
+    border: 1px solid var(--gold-line-2);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(14px) scale(0.98);
+    opacity: 0;
+    transition: transform 320ms var(--ease-out), opacity 280ms var(--ease-out);
+    box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.85);
+}
+
+.dish-modal.is-open .dish-modal__panel {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.dish-modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: rgba(20, 17, 15, 0.78);
+    color: var(--cream);
+    border: 1px solid var(--gold-line-2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background var(--dur-2) var(--ease), color var(--dur-2) var(--ease),
+    transform 120ms var(--ease), border-color var(--dur-2) var(--ease);
+}
+.dish-modal__close:active {
+    transform: scale(0.94);
+    background: var(--ink);
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.dish-modal__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--ink-3);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.dish-modal__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 400ms var(--ease-out);
+}
+.dish-modal__img.is-loaded { opacity: 1; }
+
+.dish-modal__body {
+    padding: 20px 20px 22px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.dish-modal__name {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--cream);
+    letter-spacing: 0.005em;
+    margin-bottom: 10px;
+}
+
+.dish-modal__veg {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--veg);
+    padding: 5px 10px 5px 8px;
+    border: 1px solid rgba(74, 139, 74, 0.4);
+    background: rgba(74, 139, 74, 0.08);
+    border-radius: 2px;
+    margin-bottom: 16px;
+}
+.dish-modal__veg .veg-dot { margin-top: 0; }
+
+/* ---------- Dish modal price ---------- */
+.dish-modal__price {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+}
+
+.dish-modal__price--ask {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+}
+
+.dish-modal__tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--cream-2);
+    padding-top: 14px;
+    border-top: 1px solid var(--gold-line);
+}
+
+/* ==========================================================================
+ *  VOIDX TEAM
+ * ========================================================================== */
+.voidx {
+    background: #0F0D0B;
+    padding: 56px var(--pad-x) calc(46px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--gold-line);
+    text-align: center;
+}
+
+.voidx__inner {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.voidx__eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.voidx__title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 6px;
+}
+
+.voidx__sub {
+    font-size: 12.5px;
+    color: var(--cream-dim);
+    letter-spacing: 0.04em;
+}
+.voidx__sub strong {
+    color: var(--cream);
+    font-weight: 600;
+}
+
+.voidx__divider {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold-line-2);
+    margin: 22px auto 26px;
+}
+
+.voidx__team {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.voidx__member {
+    background: var(--ink-2);
+    border: 1px solid var(--gold-line);
+    border-radius: var(--radius);
+    padding: 18px 12px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: border-color var(--dur-2) var(--ease), transform var(--dur-2) var(--ease);
+}
+
+.voidx__avatar {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(201, 162, 74, 0.08);
+    border: 1px solid var(--gold-line-2);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+    margin-bottom: 2px;
+}
+
+.voidx__name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.1;
+}
+
+.voidx__role {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.voidx__ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    padding: 7px 12px;
+    border: 1px solid var(--gold-line);
+    border-radius: 100px;
+    min-height: 32px;
+    margin-top: 6px;
+    transition: color var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease),
+    background var(--dur-2) var(--ease);
+}
+.voidx__ig:active {
+    color: var(--gold);
+    border-color: var(--gold-line-2);
+    background: rgba(201, 162, 74, 0.06);
+}
+.voidx__ig svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+.voidx__copy {
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cream-mute);
+    margin-top: 4px;
 }
